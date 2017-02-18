@@ -10,14 +10,17 @@ class EspnTennisScraper
       country = player_row.css('td')[2].css('img').attr('title').text
       points = player_row.css('td')[4].text
 
-      {
+      player_hash = {
         rank: rank,
         name: name,
         url: "http://www.espn.com#{url}",
         country: country,
         points: points
       }
+      # create a new player from the hash
+      player = Player.create_from_hash(player_hash)
     end
-    puts players
+    # binding.pry
+    puts Player.all
   end
 end
