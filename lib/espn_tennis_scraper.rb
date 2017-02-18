@@ -20,7 +20,6 @@ class EspnTennisScraper
       # create a new player from the hash
       player = Player.create_from_hash(player_hash)
     end
-    # binding.pry
-    puts Player.all
+    Rankings.print_rankings
   end
 end
