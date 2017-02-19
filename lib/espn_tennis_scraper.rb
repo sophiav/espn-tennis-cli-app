@@ -1,5 +1,10 @@
 class EspnTennisScraper
-  def self.scrape(url)
+  def self.scrape_all_rankings
+    self.scrape_atp_rankings
+    self.scrape_wta_rankings
+  end
+
+  def self.scrape(url, tour)
     doc = Nokogiri::HTML(open(url))
     player_rows = doc.css('.mod-content table tr[class*="player"]')
 
@@ -15,10 +20,21 @@ class EspnTennisScraper
         name: name,
         url: "http://www.espn.com#{url}",
         country: country,
-        points: points
+        points: points,
+        tour: tour
       }
       # create a new player from the hash
       player = Player.create_from_hash(player_hash)
     end
+  end
+
+  private
+
+  def self.scrape_atp_rankings
+    self.scrape("http://www.espn.com/tennis/rankings", "ATP")
+  end
+
+  def self.scrape_wta_rankings
+    self.scrape("http://www.espn.com/tennis/rankings/_/type/2", "WTA")
   end
 end

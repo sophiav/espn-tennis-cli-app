@@ -1,7 +1,7 @@
 class EspnTennisController
   def initialize
     puts "ESPN Tennis Rankings"
-    EspnTennisScraper.scrape("http://www.espn.com/tennis/rankings")
+    EspnTennisScraper.scrape_all_rankings
   end
 
   def call

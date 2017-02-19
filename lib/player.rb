@@ -1,5 +1,5 @@
 class Player
-  attr_accessor :name, :rank, :country, :points, :url
+  attr_accessor :name, :rank, :country, :points, :url, :tour
 
   @@all = []
 
@@ -9,8 +9,8 @@ class Player
 
     birth_date = metadata[1].text.gsub('Birth Date', '')
     hometown = metadata[2].text.gsub('Hometown', '')
-    height = metadata[3].text.gsub('Height', '')
-    weight = metadata[4].text.gsub('Weight', '')
+    height = metadata[3] ? metadata[3].text.gsub('Height', '') : "N/A"
+    weight = metadata[4] ? metadata[4].text.gsub('Weight', '') : "N/A"
 
     puts "=" * 40
     puts "Rank: #{rank}"
