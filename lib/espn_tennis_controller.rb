@@ -1,22 +1,26 @@
 class EspnTennisController
   def initialize
     puts "ESPN Tennis Rankings"
-    @rankings = EspnTennisScraper.scrape("http://www.espn.com/tennis/rankings")
+    EspnTennisScraper.scrape("http://www.espn.com/tennis/rankings")
   end
 
   def call
+    Rankings.print_rankings
+    
     input = ""
     while input != "exit"
-      puts "What would you like to see?"
+      puts "What player would you like to see? You can enter the rank or player name." 
+      puts "(or type 'list rankings' to see the rankings again)"
       input = gets.strip
-      case input
-      when "list rankings"
+
+      if input == 'list rankings'
         Rankings.print_rankings
-      when "exit"
-        puts "Goodbye!"  
-        break
+      elsif input.to_i > 0
+        Player.find_by_rank(input).player_bio
+      elsif input == "exit"
+        puts "Goodbye!"
       else
-        puts "I dont know what you mean"
+        Player.find_by_name(input).player_bio
       end
     end
   end

@@ -3,6 +3,26 @@ class Player
 
   @@all = []
 
+  def player_bio
+    doc = Nokogiri::HTML(open(url))
+    metadata = doc.css('.player-bio .player-metadata li')
+
+    birth_date = metadata[1].text.gsub('Birth Date', '')
+    hometown = metadata[2].text.gsub('Hometown', '')
+    height = metadata[3].text.gsub('Height', '')
+    weight = metadata[4].text.gsub('Weight', '')
+
+    puts "=" * 40
+    puts "Rank: #{rank}"
+    puts "Name: #{name}"
+    puts "Birth Date: #{birth_date}"
+    puts "Hometown: #{hometown}"
+    puts "Country: #{country}"
+    puts "Height: #{height}"
+    puts "Weight: #{weight}"
+    puts "=" * 40
+  end
+
   def save
     @@all << self
     self
@@ -20,5 +40,13 @@ class Player
 
   def self.create_from_hash(hash)
     self.new_from_hash(hash).save
+  end
+
+  def self.find_by_name(name)
+    @@all.detect { |player| player.name.downcase == name.downcase }
+  end
+
+  def self.find_by_rank(rank)
+    @@all.detect { |player| player.rank == rank }
   end
 end
