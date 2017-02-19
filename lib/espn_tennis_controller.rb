@@ -25,10 +25,15 @@ class EspnTennisController
       elsif input == "exit"
         puts "Goodbye!"
       else
-        Player.find_by_name(input).player_bio
+        player = Player.find_by_name(input)
+        if player
+          player.player_bio
+        else
+          puts "Could not find a player with that name. Please try again."
+        end
       end
 
-      puts "What player would you like to see? You can enter the rank or player name." 
+      puts "You can enter the rank or player name to see more information about that player." 
       puts "(or type 'atp' or 'wta' to list those rankings)"
 
     end
