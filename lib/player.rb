@@ -46,8 +46,8 @@ class Player
     @@all.detect { |player| player.name.downcase == name.downcase }
   end
 
-  def self.find_by_rank(rank)
-    @@all.detect { |player| player.rank == rank }
+  def self.find_by_rank_and_tour(rank, tour)
+    self.find_by_tour(tour).detect { |player| player.rank == rank }
   end
 
   def self.find_by_tour(tour)

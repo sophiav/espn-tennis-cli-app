@@ -14,10 +14,14 @@ class EspnTennisController
       input = gets.strip.downcase
       if input == 'atp'
         Rankings.print_atp_rankings
+        tour_type = 'atp'
+
       elsif input == 'wta'
         Rankings.print_wta_rankings
+        tour_type = 'wta'
+
       elsif input.to_i > 0
-        Player.find_by_rank(input).player_bio
+        Player.find_by_rank_and_tour(input, tour_type).player_bio
       elsif input == "exit"
         puts "Goodbye!"
       else

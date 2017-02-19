@@ -6,10 +6,10 @@ class Rankings
   end
 
   def self.print_atp_rankings
-    self.print_rankings('ATP')
+    self.print_rankings('atp')
   end
 
   def self.print_wta_rankings
-    self.print_rankings('WTA')
+    self.print_rankings('wta')
   end
 end

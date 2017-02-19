@@ -31,10 +31,10 @@ class EspnTennisScraper
   private
 
   def self.scrape_atp_rankings
-    self.scrape("http://www.espn.com/tennis/rankings", "ATP")
+    self.scrape("http://www.espn.com/tennis/rankings", "atp")
   end
 
   def self.scrape_wta_rankings
-    self.scrape("http://www.espn.com/tennis/rankings/_/type/2", "WTA")
+    self.scrape("http://www.espn.com/tennis/rankings/_/type/2", "wta")
   end
 end
