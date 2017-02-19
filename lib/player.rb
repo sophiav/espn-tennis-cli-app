@@ -49,4 +49,8 @@ class Player
   def self.find_by_rank(rank)
     @@all.detect { |player| player.rank == rank }
   end
+
+  def self.find_by_tour(tour)
+    @@all.select { |player| player.tour == tour }
+  end
 end
