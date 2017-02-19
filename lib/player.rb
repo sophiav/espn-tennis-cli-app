@@ -13,9 +13,9 @@ class Player
   end
 
   def self.new_from_hash(hash)
-    player = self.new
-    hash.each { |key, value| player.send("#{key}=", value) }
-    player
+    Player.new.tap do |player|
+      hash.each { |key, value| player.send("#{key}=", value) }
+    end
   end
 
   def self.create_from_hash(hash)
