@@ -20,6 +20,5 @@ class EspnTennisScraper
       # create a new player from the hash
       player = Player.create_from_hash(player_hash)
     end
-    Rankings.print_rankings
   end
 end

@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
-# scrape ATP tennis rankings
-EspnTennisScraper.scrape("http://www.espn.com/tennis/rankings")
+EspnTennisController.new.call
