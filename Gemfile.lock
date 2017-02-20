@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    espn-tennis-cli-app (0.0.1)
+      nokogiri (~> 1.7)
+      require_all (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -18,10 +25,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nokogiri
-  pry
-  rake
-  require_all
+  bundler (~> 1.13)
+  espn-tennis-cli-app!
+  pry (~> 0.10)
+  rake (~> 12.0)
 
 BUNDLED WITH
    1.13.6

@@ -1,5 +1,6 @@
-require 'bundler'
-Bundler.require
-
 require 'open-uri'
-require_all './lib'
+require 'require_all'
+require 'nokogiri'
+
+lib_path = File.expand_path('../../lib', __FILE__)
+require_all lib_path
