@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "bin"
-  spec.executables   = ["espn_tennis"]
+  spec.executables   = ["espn-tennis"]
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "nokogiri", "~> 1.7"
