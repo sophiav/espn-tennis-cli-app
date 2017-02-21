@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/sophiav/espn-tennis-cli-app"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f| 
+    f.match(%r{(^(test|spec|features))|\.gif$})
   end
   spec.bindir        = "bin"
   spec.executables   = ["espn-tennis"]
